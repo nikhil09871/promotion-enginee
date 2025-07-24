@@ -1,0 +1,48 @@
+- id: promo1
+  priority: 2
+  conditions:
+    level: { min: 5, max: 20 }
+    country: [US, IN]
+    days_since_last_purchase: { min: 3 }
+  promotion:
+    title: "Comeback Bonus"
+    reward: "100 gold"
+
+- id: promo2
+  priority: 1
+  conditions:
+    spend_tier: "high"
+    country: [US, CA]
+  promotion:
+    title: "High Roller Pack"
+    reward: "500 diamonds"
+
+- id: promo3
+  priority: 3
+  conditions:
+    level: { min: 1, max: 10 }
+    country: [IN]
+    days_since_last_purchase: { min: 7 }
+  promotion:
+    title: "India Newbie Special"
+    reward: "50 coins"
+
+- id: promo4
+  priority: 4
+  conditions:
+    spend_tier: "medium"
+    level: { min: 10 }
+    country: [US, IN, UK]
+  promotion:
+    title: "Mid Spender Reward"
+    reward: "200 gems"
+
+- id: promo5
+  priority: 5
+  conditions:
+    days_since_last_purchase: { max: 1 }
+    spend_tier: "low"
+    country: [US, CA, IN]
+  promotion:
+    title: "Daily Loyalty Bonus"
+    reward: "25 gold"
