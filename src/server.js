@@ -11,7 +11,7 @@ loadRulesFromFile();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+
 app.use(express.json());
 
 // Routes
@@ -23,19 +23,19 @@ app.get('/metrics', async (req, res) => {
   res.end(await register.metrics());
 });
 
-// ✅ Connect to MongoDB only if not in test environment
+// Connect to MongoDB only if not in test environment
 if (process.env.NODE_ENV !== 'test') {
   mongoose.connect(process.env.MONGO_URI || '')
     .then(() => {
-      console.log('✅ MongoDB connected');
+      console.log('MongoDB connected');
 
       // Start server
       app.listen(PORT, () => {
-        console.log(`🚀 Server running on http://localhost:${PORT}`);
+        console.log(`Server running on http://localhost:${PORT}`);
       });
     })
     .catch(err => {
-      console.log('❌ MongoDB connection failed:', err.message);
+      console.log(' MongoDB connection failed:', err.message);
     });
 }
 
