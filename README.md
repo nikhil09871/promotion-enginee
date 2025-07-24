@@ -20,6 +20,9 @@ A lightweight Node.js-based REST API to select in-game promotions based on confi
 git clone https://github.com/nikhil09871/promotion-engine.git
 cd promotion-engine
 npm install
+crete a .env file in the main project folder:
+        PORT=5000
+        MONGO_URI=your mongo uri 
 npx nodemon src/server.js
 
 
