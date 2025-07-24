@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
 
   const rules = getRules();
 
-  // ✅ Match rules and sort by priority
+  
   const matchedRules = rules.filter(rule => matchRule(rule.conditions, player));
 
   if (matchedRules.length === 0) {
@@ -39,13 +39,13 @@ router.post('/', (req, res) => {
   return res.json(selectedRule.promotion);
 });
 
-// ♻️ Reload rules dynamically without restart
+//Reload rules dynamically without restart
 router.post('/reload', (req, res) => {
   loadRulesFromFile();
   res.json({ message: 'Rules reloaded' });
 });
 
-// ✅ Validate player data
+// Validate player data
 function validatePlayer(player) {
   if (!player.level || typeof player.level !== 'number' || player.level < 0) {
     return 'Invalid or missing player level';
@@ -72,7 +72,7 @@ function validatePlayer(player) {
   return null;
 }
 
-// 🧠 Rule matching logic
+// Rule matching logic
 function matchRule(conditions, player) {
   if (conditions.level) {
     const { min = 0, max = Infinity } = conditions.level;
@@ -94,7 +94,7 @@ function matchRule(conditions, player) {
   return true;
 }
 
-// ⏱️ Record latency into histogram
+// Record latency into histogram
 function recordLatency(start) {
   const diff = process.hrtime(start);
   const latencyInSeconds = diff[0] + diff[1] / 1e9;
